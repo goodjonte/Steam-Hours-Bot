@@ -1,0 +1,2 @@
+node SteamHoursBot.js
+pause
