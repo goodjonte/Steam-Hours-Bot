@@ -1,5 +1,4 @@
 const SteamUser = require('steam-user');
-const SteamTotp = require('steam-totp')
 const client = new SteamUser();
 const readline = require('readline-sync')
 
@@ -17,15 +16,15 @@ client.on('loggedOn', () => {
 	var count = 0
 	var list_of_app_ids = []
 	while (count < 32) {
-	let appid_string = readline.question("Enter an appID or write done: ")
-	if (appid_string == "done"){
-		break;
-	}else {
-		var appid_int = parseInt(appid_string)
-		list_of_app_ids.push(appid_int)
-		var count = count + 1
+		let appid_string = readline.question("Enter an appID or write done: ")
+		if (appid_string == "done"){
+			break;
+		}else {
+			var appid_int = parseInt(appid_string)
+			list_of_app_ids.push(appid_int)
+			var count = count + 1
+		}
 	}
-}
 	client.gamesPlayed(list_of_app_ids);
 	console.log('Succesfully logged on and playing')
 });
